@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Analyzer output
+output/
+
+# Source files (not part of the deployed site)
+analyzer.js
+package.json
+package-lock.json
+Ric Ryan - Final Resume.docx
+Ric Ryan - Final Resume.pdf
+My Picture.png
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
