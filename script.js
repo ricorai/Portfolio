@@ -721,30 +721,42 @@
     bubble.innerHTML = `
       <div class="interest-bubble-title"></div>
       <div class="interest-bubble-desc"></div>
-      <div class="interest-bubble-hint">Move cursor away to close</div>
+      <div class="interest-bubble-hint">Tap outside or move cursor away to close</div>
     `;
     document.body.appendChild(bubble);
 
     const titleEl = bubble.querySelector('.interest-bubble-title');
     const descEl = bubble.querySelector('.interest-bubble-desc');
+    let isOpen = false;
 
     function open(tag) {
       titleEl.textContent = tag.textContent.trim();
       descEl.textContent = tag.dataset.description || '';
       overlay.classList.add('active');
       bubble.classList.add('active');
+      isOpen = true;
     }
 
     function close() {
+      if (!isOpen) return;
       overlay.classList.remove('active');
       bubble.classList.remove('active');
+      isOpen = false;
     }
 
     tags.forEach(tag => {
-      tag.addEventListener('click', () => open(tag));
+      tag.addEventListener('click', (e) => {
+        e.stopPropagation();
+        open(tag);
+      });
     });
 
     bubble.addEventListener('mouseleave', close);
+    document.addEventListener('click', (e) => {
+      if (isOpen && !bubble.contains(e.target)) {
+        close();
+      }
+    });
   }
 
   // ============================================================
