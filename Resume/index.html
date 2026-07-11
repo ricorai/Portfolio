@@ -152,6 +152,30 @@
       grid-template-columns: 1fr 1fr;
       gap: 24px;
     }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .cert-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #FAFAFA;
+    }
+    .cert-card img {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+    }
+    .cert-card .cert-label {
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      border-top: 1px solid var(--border);
+    }
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -289,6 +313,21 @@
       <div>
         <strong>Maco Heights Central Elementary School</strong><br />
         <span style="color:var(--text-secondary);">Elementary</span>
+      </div>
+    </div>
+
+    <!-- Certificates -->
+    <div class="section">
+      <h2>Certificates</h2>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <img src="../assets/images/CGP%20Certificate.jpg" alt="CGP Certificate" loading="lazy" />
+          <div class="cert-label">CGP Certificate</div>
+        </div>
+        <div class="cert-card">
+          <img src="../assets/images/CamScanner%207-11-26%2008.31_1.jpeg" alt="Certificate" loading="lazy" />
+          <div class="cert-label">Certificate of Completion</div>
+        </div>
       </div>
     </div>
 
