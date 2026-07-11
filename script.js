@@ -215,6 +215,11 @@
         el.style.opacity = '1';
         el.style.transform = 'translateY(0)';
         el.classList.add('visible');
+        // Clean up inline transform after transition so CSS :hover/:active can take over
+        el.addEventListener('transitionend', function handler() {
+          el.style.transform = '';
+          el.removeEventListener('transitionend', handler);
+        });
       }, ms || 0);
     }
 
@@ -699,7 +704,51 @@
   }
 
   // ============================================================
-  // 12. INITIALIZATION
+  // 12. INTEREST TAG BUBBLE
+  // ============================================================
+  function initInterestBubbles() {
+    const tags = document.querySelectorAll('.interest-tag');
+    if (!tags.length) return;
+
+    // Create overlay (visual only)
+    const overlay = document.createElement('div');
+    overlay.className = 'interest-overlay';
+    document.body.appendChild(overlay);
+
+    // Create bubble
+    const bubble = document.createElement('div');
+    bubble.className = 'interest-bubble';
+    bubble.innerHTML = `
+      <div class="interest-bubble-title"></div>
+      <div class="interest-bubble-desc"></div>
+      <div class="interest-bubble-hint">Move cursor away to close</div>
+    `;
+    document.body.appendChild(bubble);
+
+    const titleEl = bubble.querySelector('.interest-bubble-title');
+    const descEl = bubble.querySelector('.interest-bubble-desc');
+
+    function open(tag) {
+      titleEl.textContent = tag.textContent.trim();
+      descEl.textContent = tag.dataset.description || '';
+      overlay.classList.add('active');
+      bubble.classList.add('active');
+    }
+
+    function close() {
+      overlay.classList.remove('active');
+      bubble.classList.remove('active');
+    }
+
+    tags.forEach(tag => {
+      tag.addEventListener('click', () => open(tag));
+    });
+
+    bubble.addEventListener('mouseleave', close);
+  }
+
+  // ============================================================
+  // 13. INITIALIZATION
   // ============================================================
   function init() {
     buildSectionList();
@@ -713,6 +762,7 @@
     initNativeScrollFallback();   // fallback if Lenis unavailable
     initMobileNav();
     initSmoothScroll();
+    initInterestBubbles();
   }
 
   // Run when DOM is ready

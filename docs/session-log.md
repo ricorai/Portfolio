@@ -27,7 +27,11 @@
 ### 2026-07-11
 - Workspace folder was renamed, causing previous VS Code chat session to be lost.
 - Created `docs/session-log.md` to persist session context within the project itself.
-- Going forward, important decisions and context should be recorded here.
+- Added Certificates section to `Resume/index.html`:
+  - CGP Certificate (`CGP Certificate.jfif` → converted to `.jpg`)
+  - CamScanner certificate (`CamScanner 7-11-26 08.31_1.jpeg`)
+- Converted `.jfif` to `.jpg` for better browser compatibility.
+- Committed: `5c7171d` — "Add certificates section to resume, convert JFIF to JPG, add session log"
 
 ---
 
