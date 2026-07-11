@@ -36,9 +36,11 @@
     const ctx = particleCanvas.getContext('2d');
     let width, height;
     let particles = [];
-    const PARTICLE_COUNT = 50;
+    const isMobile = window.innerWidth <= 768;
+    const PARTICLE_COUNT = isMobile ? 20 : 50;
     let mouseX = -1000;
     let mouseY = -1000;
+    const hasPointer = matchMedia('(hover: hover)').matches;
 
     function resize() {
       const rect = particleCanvas.parentElement.getBoundingClientRect();
@@ -137,16 +139,18 @@
       pObs.observe(heroSection);
     }
 
-    particleCanvas.addEventListener('mousemove', function (e) {
-      var rect = particleCanvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
-    });
+    if (hasPointer) {
+      particleCanvas.addEventListener('mousemove', function (e) {
+        var rect = particleCanvas.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+      });
 
-    particleCanvas.addEventListener('mouseleave', function () {
-      mouseX = -1000;
-      mouseY = -1000;
-    });
+      particleCanvas.addEventListener('mouseleave', function () {
+        mouseX = -1000;
+        mouseY = -1000;
+      });
+    }
 
     window.addEventListener('resize', resize);
     init();
@@ -651,32 +655,43 @@
   function initMobileNav() {
     if (!navToggle || !navLinks) return;
 
+    // Create backdrop overlay
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    function openNav() {
+      navLinks.classList.add('active');
+      navToggle.classList.add('active');
+      navToggle.setAttribute('aria-expanded', 'true');
+      backdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (lenis) lenis.stop();
+    }
+
+    function closeNav() {
+      navLinks.classList.remove('active');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      backdrop.classList.remove('active');
+      document.body.style.overflow = '';
+      if (lenis) lenis.start();
+    }
+
     navToggle.addEventListener('click', function () {
-      const isActive = navLinks.classList.contains('active');
-      if (isActive) {
-        navLinks.classList.remove('active');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        if (lenis) lenis.start();
+      if (navLinks.classList.contains('active')) {
+        closeNav();
       } else {
-        navLinks.classList.add('active');
-        navToggle.classList.add('active');
-        navToggle.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-        if (lenis) lenis.stop();
+        openNav();
       }
     });
 
+    // Close on backdrop click
+    backdrop.addEventListener('click', closeNav);
+
     // Close mobile nav when a link is clicked
     allNavLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        navLinks.classList.remove('active');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        if (lenis) lenis.start();
-      });
+      link.addEventListener('click', closeNav);
     });
   }
 
