@@ -260,7 +260,7 @@ ul {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: rgba(34, 40, 49, 0.35);
+  background: rgba(34, 40, 49, 0.45);
 }
 
 .hero-content {
@@ -290,12 +290,12 @@ ul {
 .hero-title {
   font-size: 1.25rem;
   font-weight: 500;
-  color: #E8E2D6;
+  color: #FFFFFF;
 }
 
 .hero-summary {
   font-size: 1.05rem;
-  color: #E8E2D6;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.7;
   margin-bottom: 32px;
   max-width: 620px;
