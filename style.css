@@ -273,7 +273,7 @@ ul {
 .hero-greeting {
   font-size: 1.05rem;
   font-weight: 500;
-  color: #DFD0B8;
+  color: #F0EBE3;
   margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
@@ -290,12 +290,12 @@ ul {
 .hero-title {
   font-size: 1.25rem;
   font-weight: 500;
-  color: #C5BFB5;
+  color: #E8E2D6;
 }
 
 .hero-summary {
   font-size: 1.05rem;
-  color: #C5BFB5;
+  color: #E8E2D6;
   line-height: 1.7;
   margin-bottom: 32px;
   max-width: 620px;
@@ -344,7 +344,7 @@ ul {
 .typing-cursor {
   font-size: 1.25rem;
   font-weight: 300;
-  color: #DFD0B8;
+  color: #F0EBE3;
   animation: blink 1s step-end infinite;
 }
 
