@@ -99,6 +99,10 @@ ul {
   border-radius: 4px;
 }
 
+.section-dark :focus-visible {
+  outline-color: #DFD0B8;
+}
+
 /* ---------- CURSOR GLOW (disabled — neutral palette) ---------- */
 
 /* ---------- NAVIGATION ---------- */

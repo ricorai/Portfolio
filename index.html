@@ -9,13 +9,23 @@
   <meta property="og:description" content="Virtual Assistant & AI Productivity Specialist. Explore projects, skills, and experience." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ricryan.dev" />
+  <meta property="og:image" content="https://ricorai.github.io/Portfolio/assets/images/profile.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#948979" />
   <title>Ric Ryan E. Mahusay — Virtual Assistant & AI Productivity Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- Anti-flicker: hide animated elements until JS initializes them -->
+  <style>
+    .reveal, .skill-card, .stat-item { opacity: 0; }
+    .hero .fade-in { opacity: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .skill-card, .stat-item, .hero .fade-in { opacity: 1; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
 <body>
 
@@ -502,6 +512,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

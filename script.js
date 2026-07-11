@@ -103,36 +103,42 @@
       }
     }
 
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
+    var particlesVisible = true;
 
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = 'rgba(148, 137, 121, ' + (0.06 * (1 - dist / 100)) + ')';
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+    function animate() {
+      if (particlesVisible) {
+        ctx.clearRect(0, 0, width, height);
+        for (var i = 0; i < particles.length; i++) {
+          for (var j = i + 1; j < particles.length; j++) {
+            var dx = particles[i].x - particles[j].x;
+            var dy = particles[i].y - particles[j].y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = 'rgba(148, 137, 121, ' + (0.06 * (1 - dist / 100)) + ')';
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
           }
         }
+        particles.forEach(function (p) { p.update(); p.draw(ctx); });
       }
-
-      particles.forEach(function (p) {
-        p.update();
-        p.draw(ctx);
-      });
-
       requestAnimationFrame(animate);
     }
 
+    // Pause particles when hero is off-screen
+    var heroSection = document.getElementById('hero');
+    if (heroSection && 'IntersectionObserver' in window) {
+      var pObs = new IntersectionObserver(function (e) {
+        particlesVisible = e[0].isIntersecting;
+      }, { threshold: 0 });
+      pObs.observe(heroSection);
+    }
+
     particleCanvas.addEventListener('mousemove', function (e) {
-      const rect = particleCanvas.getBoundingClientRect();
+      var rect = particleCanvas.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
     });
