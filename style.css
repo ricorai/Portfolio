@@ -273,7 +273,7 @@ ul {
 .hero-greeting {
   font-size: 1.05rem;
   font-weight: 500;
-  color: #F0EBE3;
+  color: #FFFFFF;
   margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
@@ -344,7 +344,7 @@ ul {
 .typing-cursor {
   font-size: 1.25rem;
   font-weight: 300;
-  color: #F0EBE3;
+  color: #FFFFFF;
   animation: blink 1s step-end infinite;
 }
 
