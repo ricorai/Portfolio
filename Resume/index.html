@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ric Ryan E. Mahusay — Resume. Virtual Assistant & AI Productivity Specialist." />
+  <title>Resume — Ric Ryan E. Mahusay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --text: #222831;
+      --text-secondary: #393E46;
+      --accent: #948979;
+      --border: #E5E7EB;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding: 60px 24px;
+    }
+    .resume {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.875rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 8px;
+    }
+    .header .contact {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .header .contact span { margin: 0 8px; }
+    .header .contact span:first-child { margin-left: 0; }
+    .section {
+      margin-bottom: 36px;
+    }
+    .section h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section p, .section li {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+    .section ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .section li {
+      margin-bottom: 6px;
+    }
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .experience-header h3 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .experience-header .date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .company {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .tag {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: #F7F7F7;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .project-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .project-card p {
+      font-size: 0.85rem;
+    }
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .interest {
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: #F7F7F7;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .download-btn:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      body { padding: 32px 16px; }
+      .projects-grid, .two-col { grid-template-columns: 1fr; }
+      .header h1 { font-size: 1.5rem; }
+    }
+    @media print {
+      body { padding: 0; font-size: 11pt; }
+      .back-link, .download-btn { display: none; }
+      .section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume">
+    <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+    <!-- Header -->
+    <div class="header">
+      <h1>Ric Ryan E. Mahusay</h1>
+      <p class="contact">
+        Tagum, Philippines
+        <span>|</span> ricryan2023@gmail.com
+        <span>|</span> 09695989955
+      </p>
+      <a href="../assets/resume/Ric-Ryan-Resume.pdf" class="download-btn" download>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Summary -->
+    <div class="section">
+      <h2>Summary</h2>
+      <p>Virtual Assistant with hands-on experience supporting client operations, administrative tasks, and marketing projects. Experienced in using AI tools to simplify workflows, automate routine tasks, and improve productivity.</p>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <h2>Skills</h2>
+      <ul>
+        <li>Virtual assistance: calendar management, email communication, document preparation, and administrative support</li>
+        <li>Workflow improvement and AI-assisted task automation</li>
+        <li>Prompt engineering across Claude, ChatGPT, Gemini, Grok, and Perplexity</li>
+        <li>AI workflow design and multi-model collaboration</li>
+        <li>Command-line workflows using VS Code terminal and PowerShell</li>
+        <li>Git and GitHub for version control and project management</li>
+        <li>HTML, CSS, and JavaScript</li>
+        <li>Google Workspace (Docs, Sheets, Drive) and Microsoft Office</li>
+        <li>Canva for presentations, marketing materials, and social media graphics</li>
+        <li>Comparative Market Analysis (CMA) research and real estate listing support</li>
+        <li>Data organization, reporting, and workflow tracking using Google Sheets</li>
+      </ul>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <h2>Experience</h2>
+      <div class="experience-header">
+        <h3>Virtual Assistant &mdash; Real Estate (NYC Luxury Client)</h3>
+        <span class="date">January 2026 &ndash; June 2026</span>
+      </div>
+      <p class="company">Composite Global Partners</p>
+      <ul>
+        <li>Provided administrative, operational, and marketing support for a luxury real estate client in a fast-paced remote environment.</li>
+        <li>Prepared Comparative Market Analyses (CMAs) by researching comparable properties, historical sales, and market data.</li>
+        <li>Researched property records, past transactions, and market information to support client presentations and decision-making.</li>
+        <li>Designed and refined listing presentation materials through multiple iterations, improving layouts, typography, image quality (using AI-assisted enhancement), and visual consistency based on client feedback.</li>
+        <li>Created branding assets, including logos and marketing materials, that contributed to a successful listing presentation.</li>
+        <li>Listed and updated property information across platforms such as StreetEasy and internal real estate resources.</li>
+        <li>Tracked and updated deal statuses, ensuring accurate records throughout the transaction process.</li>
+        <li>Managed daily email updates and coordinated communication with the client.</li>
+        <li>Organized and maintained Google Sheets databases for property, client, and transaction tracking.</li>
+        <li>Prepared and completed real estate documents, including ERTs, commission invoices, and other transaction-related paperwork.</li>
+        <li>Improved workflows by streamlining repetitive tasks, organizing information, and creating more efficient processes.</li>
+        <li>Adapted to a wide range of responsibilities, providing reliable support across administrative, marketing, operations, and design tasks.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Workflow Improvements</span>
+        <span class="tag">Successful Listing Presentation</span>
+        <span class="tag">AI-Assisted Image Enhancement</span>
+        <span class="tag">Brand Asset Creation</span>
+        <span class="tag">Cross-Platform Data Management</span>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <h2>Technical Projects — 2025&ndash;2026</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>AI Orchestration Framework (Ryos)</h3>
+          <p>Built a framework for more consistent AI responses across platforms. Tested and refined through real-world use and feedback from other users.</p>
+        </div>
+        <div class="project-card">
+          <h3>Ryos Relay</h3>
+          <p>Built a command-line tool that allows multiple AI models to exchange information and collaborate in a single workflow.</p>
+        </div>
+        <div class="project-card">
+          <h3>Master Prompts &amp; Prompt Engineering</h3>
+          <p>Wrote and refined reusable prompts for Claude, ChatGPT, Gemini, Grok, and Perplexity. Improved consistency and quality of AI responses.</p>
+        </div>
+        <div class="project-card">
+          <h3>Websites &amp; Media Design</h3>
+          <p>Built and maintained a personal/project website. Designed marketing materials and digital graphics using Canva.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <h2>Education</h2>
+      <div style="margin-bottom:12px;">
+        <strong>University of Mindanao</strong> &mdash; Tagum College<br />
+        <span style="color:var(--text-secondary);">Bachelor of Science in Information Technology (Completed up to 3rd Year)</span>
+      </div>
+      <div style="margin-bottom:12px;">
+        <strong>Lyceum of the Philippines University</strong> &mdash; Davao<br />
+        <span style="color:var(--text-secondary);">Senior High School</span>
+      </div>
+      <div style="margin-bottom:12px;">
+        <strong>Max Mirafuentes Academy</strong><br />
+        <span style="color:var(--text-secondary);">High School</span>
+      </div>
+      <div>
+        <strong>Maco Heights Central Elementary School</strong><br />
+        <span style="color:var(--text-secondary);">Elementary</span>
+      </div>
+    </div>
+
+    <!-- Personal -->
+    <div class="section">
+      <h2>Personal Profile</h2>
+      <div class="two-col">
+        <div>
+          <h3 style="font-size:0.95rem;font-weight:600;margin-bottom:4px;">About Me</h3>
+          <p>I enjoy improving the way work gets done. Whether it's organizing information, simplifying a workflow, or finding opportunities to automate repetitive tasks, I like building practical solutions that save time and make day-to-day operations more efficient. I'm naturally curious, quick to learn new tools, and enjoy adapting to new challenges while delivering reliable support to clients and teams.</p>
+        </div>
+        <div>
+          <h3 style="font-size:0.95rem;font-weight:600;margin-bottom:4px;">Details</h3>
+          <p>
+            <strong>Location:</strong> Tagum City, Philippines<br />
+            <strong>Languages:</strong> English, Filipino, Cebuano<br />
+            <strong>Work Setup:</strong> Remote / Hybrid / On-site<br />
+            <strong>Availability:</strong> Full-Time<br />
+            <strong>Time Zone:</strong> GMT+8 (Philippines)
+          </p>
+          <h3 style="font-size:0.95rem;font-weight:600;margin:16px 0 4px;">Current Interests</h3>
+          <div class="interests">
+            <span class="interest">AI Workflow Automation</span>
+            <span class="interest">Process Improvement</span>
+            <span class="interest">Virtual Assistance</span>
+            <span class="interest">Prompt Engineering</span>
+            <span class="interest">Workflow Design</span>
+            <span class="interest">Web Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
